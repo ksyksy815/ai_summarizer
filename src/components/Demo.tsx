@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { copy, linkIcon, loader, tick } from "../assets";
 
 import { useLazyGetSummaryQuery } from "../services/article";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 
 type Article = {
   summary: string;
@@ -17,16 +18,16 @@ const Demo = () => {
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
   useEffect(() => {
-    const articlesFromLocalStorage = JSON.parse(
-      localStorage.getItem("articles")
-    );
+    const articlesFromLocalStorage = localStorage.getItem("articles")
+      ? JSON.parse(localStorage.getItem("articles") as string)
+      : null;
 
     if (articlesFromLocalStorage) {
       setAllArticles(articlesFromLocalStorage);
     }
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const { data } = await getSummary({ articleUrl: article.url });
@@ -106,7 +107,10 @@ const Demo = () => {
             Well, that was not supposed to happen...
             <br />
             <span className="font-satoshi font-normal text-gray-700">
-              {error?.data?.error}
+              {
+                (error as FetchBaseQueryError & { data: { error: string } })
+                  ?.data?.error
+              }
             </span>
           </p>
         ) : (
