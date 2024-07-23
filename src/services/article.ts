@@ -21,7 +21,7 @@ export const articleApi = createApi({
       query: (params: { articleUrl: string }) =>
         `/summarize?url=${encodeURIComponent(
           params.articleUrl
-        )}&length=3&lang=ko`,
+        )}&length=3&lang=en`,
     }),
   }),
 });

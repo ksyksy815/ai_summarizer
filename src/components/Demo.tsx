@@ -74,7 +74,7 @@ const Demo = () => {
 
           <button
             type="submit"
-            className="ml-2 h-[42px] rounded-md w-[125px] bg-[#005f8f] peer-focus:border-gray-700 peer-focus:text-gray-700"
+            className="ml-2 h-[42px] rounded-md w-[125px] bg-[#005f8f] peer-focus:border-gray-700 peer-focus:text-gray-700 hover:font-semibold"
           >
             Enter
           </button>
