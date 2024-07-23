@@ -1,27 +1,14 @@
-import { logo } from "../assets";
-
 const Hero = () => {
   return (
-    <header className="w-full flex justify-center items-center flex-col">
-      <nav className="flex justify-between items-center w-full mb-10 pt-3">
-        <img src={logo} alt="Sumz_logo" className="w-28 object-contain" />
-
-        <button
-          type="button"
-          onClick={() => window.open(`https://github.com/ksyksy815`)}
-          className="black_btn">
-          GitHub
-        </button>
-      </nav>
-
-      <h1 className="head_text">
+    <header className="flex flex-col items-center justify-center w-full">
+      <h1 className="text-4xl font-bold tracking-tighter text-center sm:text-5xl md:text-6xl lg:text-7xl">
         Summarize Articles with <br className="max-md:hidden" />
-        <span className="orange_gradient">OpenAI GPT-4</span>
+        OpenAI GPT-4
       </h1>
-      <h2 className="desc">
+      <p className={`max-w-[700px] text-muted-foreground md:text-xl mt-8`}>
         Simplify your reading with Summize, an open-source article summarizer
         that transforms lengthy articles into clear and concise summaries.
-      </h2>
+      </p>
     </header>
   );
 };
