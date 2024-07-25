@@ -6,8 +6,8 @@ const Hero = () => {
         OpenAI GPT-4
       </h1>
       <p className={`max-w-[700px] text-muted-foreground md:text-xl mt-8`}>
-        Simplify your reading with Summize, an open-source article summarizer
-        that transforms lengthy articles into clear and concise summaries.
+        Simplify your reading with Sumz, an open-source article summarizer that
+        transforms lengthy articles into clear and concise summaries.
       </p>
     </header>
   );
